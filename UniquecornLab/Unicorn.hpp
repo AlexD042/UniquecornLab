@@ -5,7 +5,7 @@
 
 class Unicorn {
 private:
-	std::string name = "";
+	std::string name;
 	static std::vector<std::string> takenNames;
 public:
 	Unicorn(std::string inputName);

@@ -2,25 +2,18 @@
 
 #include <iostream>
 
-std::vector<std::string> Unicorn::takenNames = { };
+std::vector<std::string> Unicorn::takenNames;
 
 Unicorn::Unicorn(std::string inputName) {
 	bool taken = false;
-	if (!takenNames.empty()) {
-		for (std::string& n : takenNames) {
-			if (inputName == n) {
-				std::cout << "This name is already taken! A unicorn can not have the same name as another unicorn!\n";
-				taken = true;
-				break;
-			}
-		}
-		if (!taken) {
-			std::cout << "Unicorn created!\n";
-			name = inputName;
-			takenNames.push_back(inputName);
+	for (std::string& n : takenNames) {
+		if (inputName == n) {
+			std::cout << "This name is already taken! A unicorn can not have the same name as another unicorn!\n";
+			taken = true;
+			break;
 		}
 	}
-	else {
+	if (!taken) {
 		std::cout << "Unicorn created!\n";
 		name = inputName;
 		takenNames.push_back(inputName);
